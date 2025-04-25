@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="HookManager.cpp">
+      <Filter>cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="InternalHookManager.cpp">
+      <Filter>cpp</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>h</Filter>
+    </ClInclude>
+    <ClInclude Include="HookManager.h">
+      <Filter>h</Filter>
+    </ClInclude>
+    <ClInclude Include="InternalHookManager.h">
+      <Filter>h</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>h</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="cpp">
+      <UniqueIdentifier>{66d67df0-3149-48f8-97cc-93cea8119ab1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="h">
+      <UniqueIdentifier>{a43a0190-fe05-4334-beb0-98276e98eae5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
