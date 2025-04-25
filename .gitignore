@@ -1,3 +1,4 @@
-.vs/.*
-debug/.*
-release/.*
+.vs/
+Debug/
+Release/
+Hook/

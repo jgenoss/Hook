@@ -3,7 +3,7 @@
   HookManager.cpp
   InternalHookManager.cpp
   Generando código...
-     Creando biblioteca D:\Usuarios\JGENOSS\Desktop\Herraminetas de desemsable y modificacion\Hook\x64\Debug\Hook.lib y objeto D:\Usuarios\JGENOSS\Desktop\Herraminetas de desemsable y modificacion\Hook\x64\Debug\Hook.exp
+     Creando biblioteca D:\Usuarios\JGENOSS\Documents\GitHub\Hook\x64\Debug\Hook.lib y objeto D:\Usuarios\JGENOSS\Documents\GitHub\Hook\x64\Debug\Hook.exp
 HookManager.obj : error LNK2019: símbolo externo DetourTransactionBegin sin resolver al que se hace referencia en la función "public: bool __cdecl HookManager::InstallHook(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?InstallHook@HookManager@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
 InternalHookManager.obj : error LNK2001: símbolo externo DetourTransactionBegin sin resolver
 HookManager.obj : error LNK2019: símbolo externo DetourTransactionCommit sin resolver al que se hace referencia en la función "public: bool __cdecl HookManager::InstallHook(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?InstallHook@HookManager@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
@@ -15,4 +15,4 @@ InternalHookManager.obj : error LNK2001: símbolo externo DetourAttach sin resol
 HookManager.obj : error LNK2019: símbolo externo DetourDetach sin resolver al que se hace referencia en la función "public: bool __cdecl HookManager::UninstallHook(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?UninstallHook@HookManager@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
 InternalHookManager.obj : error LNK2001: símbolo externo DetourDetach sin resolver
 detours.lib : warning LNK4272: el tipo de máquina de biblioteca 'x86' está en conflicto con el tipo de máquina de destino 'x64'
-D:\Usuarios\JGENOSS\Desktop\Herraminetas de desemsable y modificacion\Hook\x64\Debug\Hook.dll : fatal error LNK1120: 5 externos sin resolver
+D:\Usuarios\JGENOSS\Documents\GitHub\Hook\x64\Debug\Hook.dll : fatal error LNK1120: 5 externos sin resolver
