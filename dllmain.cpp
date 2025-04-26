@@ -47,6 +47,17 @@ bool __fastcall HookedEncript(void* thisPtr, void* edx, unsigned int param1) {
     return result;
 }
 
+typedef BOOL(WINAPI* IsDebuggerPresent_t)(VOID);
+
+BOOL WINAPI HookedIsDebuggerPresent(VOID) {
+    HookManager* hookManager = HookManager::GetInstance();
+    hookManager->Log("IsDebuggerPresent interceptada - Ocultando depurador");
+
+    return FALSE;
+}
+
+
+
 // Función para crear la consola de depuración
 void CreateConsole() {
     AllocConsole();
@@ -127,28 +138,44 @@ extern "C" __declspec(dllexport) void Init() {
     // Registrar hooks para las funciones que nos interesan
     HookManager* hookManager = HookManager::GetInstance();
 
-    // Registrar hook para GetProtocolID
+
     hookManager->RegisterHook(
-        "GetProtocolID",                             // ID único del hook
-        "I3NETWORKDX.DLL",                           // Nombre de la DLL
-        "GetProtocolID",                             // Nombre de la función
-        "?GetProtocolID@i3NetworkPacket@@QAEGXZ",    // Nombre decorado (opcional)
-        (void*)HookedGetProtocolID                   // Función hook
+        "IsDebuggerPresent",                             // ID único del hook
+        "kernel32.dll",                           // Nombre de la DLL
+        "IsDebuggerPresent",                             // Nombre de la función
+        "",    // Nombre decorado (opcional)
+        (void*)HookedIsDebuggerPresent                   // Función hook
     );
 
-    // Ejemplo: Registrar otro hook (SendPacket)
-    hookManager->RegisterHook(
-        "Encript",                                   // ID único del hook
-        "I3NETWORKDX.DLL",                           // Nombre de la DLL
-        "Encript",                                   // Nombre de la función
-        "?Encript@i3NetworkPacket@@QAEHI@Z",        // Nombre decorado
-        (void*)HookedEncript                         // Función hook
-    );
+    //// Registrar hook para GetProtocolID
+    //hookManager->RegisterHook(
+    //    "GetProtocolID",                             // ID único del hook
+    //    "I3NETWORKDX.DLL",                           // Nombre de la DLL
+    //    "GetProtocolID",                             // Nombre de la función
+    //    "?GetProtocolID@i3NetworkPacket@@QAEGXZ",    // Nombre decorado (opcional)
+    //    (void*)HookedGetProtocolID                   // Función hook
+    //);
+
+    //// Ejemplo: Registrar otro hook (SendPacket)
+    //hookManager->RegisterHook(
+    //    "Encript",                                   // ID único del hook
+    //    "I3NETWORKDX.DLL",                           // Nombre de la DLL
+    //    "Encript",                                   // Nombre de la función
+    //    "?Encript@i3NetworkPacket@@QAEHI@Z",        // Nombre decorado
+    //    (void*)HookedEncript                         // Función hook
+    //);
 
     // También podrías cargar la configuración de hooks desde un archivo de texto o ini
 
     // Instalar todos los hooks registrados
     hookManager->InstallAllHooks();
+
+    if (hookManager->InstallHook("IsDebuggerPresent")) {
+        hookManager->Log("Hook de IsDebuggerPresent instalado correctamente");
+    }
+    else {
+        hookManager->Log("Error al instalar hook de IsDebuggerPresent");
+    }
 }
 
 // Punto de entrada de la DLL
